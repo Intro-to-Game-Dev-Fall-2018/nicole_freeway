@@ -15,8 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	//public GameObject p1;
 	//public GameObject p2;
 
-	public Text p1ScoreText;
-	public Text p2ScoreText;
+	public Text scoreText;
 	
 	//private TextMeshPro p1ScoreText;
 	//private TextMeshPro p2ScoreText;
@@ -37,15 +36,25 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		p1ScoreText.text = p1ScoreCount.ToString();
-		p2ScoreText.text = p2ScoreCount.ToString();
+		if (gameObject.tag == "Player1")
+		{
+			scoreText.text = p1ScoreCount.ToString();
+		}
+
+		if (gameObject.tag == "Player2")
+		{
+			scoreText.text = p2ScoreCount.ToString();
+		}
 		Debug.Log("Player 1: " + p1ScoreCount);
 		Debug.Log("Player 2: " + p2ScoreCount);
 	}
 	
 	void Update ()
 	{
-		
+		if (Input.GetKey(KeyCode.R))
+		{
+			RestartLevel();
+		}
 		if (gameObject.tag == "Player1")
 		{
 			if (Input.GetKey(KeyCode.W))
@@ -128,5 +137,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		p2WinScreen.SetActive(true);
 		Reset();
+	}
+
+	void RestartLevel()
+	{
+		Application.LoadLevel(Application.loadedLevel);
 	}
 }
