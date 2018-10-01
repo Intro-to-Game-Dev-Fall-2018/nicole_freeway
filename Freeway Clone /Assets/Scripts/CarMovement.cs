@@ -30,32 +30,15 @@ public class CarMovement : MonoBehaviour
 			transform.position = transform.position + Vector3.left * speed;
 		}
 	}
+	
+	
 
-	void OnTriggerExit2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "LeftBounds")
+		if (other.gameObject.tag == "End")
 		{
-			if (!moveRight)
-			{
-				Debug.Log("Exit Left");
-				Reset();
-			}
-		}
-		else if (other.gameObject.tag == "RightBounds")
-		{
-			if (moveRight)
-			{
-				Debug.Log("Exit Right");
-				Reset();
-			}
+			Destroy(gameObject);
 		}
 	}
-
-
-	void Reset()
-	{
-		transform.position = carStartPos;
-	}
-		
 		
 }

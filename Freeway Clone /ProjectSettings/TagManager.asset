@@ -11,6 +11,7 @@ TagManager:
   - Overlay
   - LeftBounds
   - RightBounds
+  - End
   layers:
   - Default
   - TransparentFX

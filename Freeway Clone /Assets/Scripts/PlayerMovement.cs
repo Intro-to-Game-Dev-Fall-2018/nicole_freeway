@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 		if (other.gameObject.tag == "Car")
 		{
 			//Debug.Log("hit car");
-			Reset();
+			//Reset();
 		}
 		else if (other.gameObject.tag == "Goal")
 		{
